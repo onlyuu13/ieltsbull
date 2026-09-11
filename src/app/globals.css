@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white text-bull-ink antialiased dark:bg-neutral-950 dark:text-neutral-100;
+  }
+
+  /* 键盘可达性：统一焦点环，配色跟随品牌黄 */
+  :focus-visible {
+    @apply outline-none ring-2 ring-bull-amber ring-offset-2 ring-offset-white dark:ring-offset-neutral-950;
+  }
+}
