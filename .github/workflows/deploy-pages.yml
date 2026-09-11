@@ -51,6 +51,9 @@ jobs:
         run: touch out/.nojekyll
 
       - uses: actions/configure-pages@v5
+        with:
+          # 仓库若还没开 Pages，由这一步用工作流令牌直接开启
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
