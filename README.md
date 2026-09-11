@@ -41,6 +41,24 @@ docs/tasks/       任务包与待裁决问题
 public/brand/     品牌资源
 ```
 
+## 部署（GitHub Pages）
+
+推送到默认分支会触发 `.github/workflows/deploy-pages.yml`：跑 lint、typecheck、
+单元测试，然后静态导出并发布到 GitHub Pages。
+
+**首次部署前，仓库所有者需要手动开启一次 Pages**（工作流令牌没有创建 Pages
+站点的权限，只能人工开）：
+
+1. 打开 `Settings` → `Pages`
+2. `Build and deployment` → `Source` 选 **GitHub Actions**
+3. 回到 `Actions` 页重跑一次 Deploy to GitHub Pages
+
+开启后站点地址是 `https://<owner>.github.io/ieltsbull/`。
+
+站点默认仍是完整的 Next 应用，只有 Pages 构建会通过 `NEXT_OUTPUT=export`
+切成静态导出。等接入 Supabase 认证、服务端路由后，静态导出撑不住登录态，
+届时要换到 Vercel 或 Cloudflare Pages。
+
 ## 当前进度
 
 T01 已完成：脚手架、全局壳、主题切换、首页。后端、背词、阅读内容尚未接入。

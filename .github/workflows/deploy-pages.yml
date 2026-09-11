@@ -50,10 +50,10 @@ jobs:
       - name: Disable Jekyll processing
         run: touch out/.nojekyll
 
+      # 这一步要求仓库已开启 Pages 且来源设为 GitHub Actions。
+      # 工作流令牌没有创建 Pages 站点的权限（Resource not accessible by
+      # integration），所以首次必须由仓库所有者在 Settings → Pages 里手动开启。
       - uses: actions/configure-pages@v5
-        with:
-          # 仓库若还没开 Pages，由这一步用工作流令牌直接开启
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
